@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\roadBehavior.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
      <Compile Include="Assets\Scripts\sphereBehavior.cs" />
+     <Compile Include="Assets\Scripts\UI.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Unity_proj/Runner/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

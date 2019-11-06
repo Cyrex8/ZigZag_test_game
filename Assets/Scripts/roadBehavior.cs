@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class roadBehavior : MonoBehaviour
 {
 
-    public GameObject road; // Префаб участка пути
+    public GameObject road;
+    public GameObject Coin;// Префаб участка пути
     private Vector3 lastpos = new Vector3(0f, 0f, 0f); // Координаты установленного префаба
+   
 
     void Start()
     {
@@ -23,21 +25,41 @@ public class roadBehavior : MonoBehaviour
 
     void SpawnPlatform()
     {
-
+        int chance = Random.Range(0, 100);
+        int ch = 20;
         int random = Random.Range(0, 2);
         if (random == 0)
         { // Установить префаб по оси X
             GameObject _platform = Instantiate(road) as GameObject;
+            GameObject _coin = Instantiate(Coin) as GameObject;
             _platform.transform.position = lastpos + new Vector3(1f, 0f, 0f);
+            Debug.Log("шанс " + chance);
+            if (chance <= ch)
+            {
+             
+                _coin.transform.position = lastpos + new Vector3(1f, 0.7f, 0f);
+            }
             lastpos = _platform.transform.position;
         }
         else
         { // Установить префаб по оси Z
             GameObject _platform = Instantiate(road) as GameObject;
+            GameObject _coin = Instantiate(Coin) as GameObject;
             _platform.transform.position = lastpos + new Vector3(0f, 0f, -1f);
+           
+            if (chance <= ch)
+            {
+              
+                _coin.transform.position = lastpos + new Vector3(0f, 0.7f, -1f);
+            }
             lastpos = _platform.transform.position;
         }
 
     }
+ void SpawnCoins(){
+      
+        
 
+
+    }
 }

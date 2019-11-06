@@ -6,7 +6,8 @@ public class sphereBehavior : MonoBehaviour
 
     private Rigidbody rb; // Объявление новой переменной Rigidbody
     private bool isMovingLeft = true; // переменная, отражающая условное направление объекта
-    private float speed = 250f; // Скорость движения объекта
+    [SerializeField]
+    private float speed = 150f; // Скорость движения объекта
 
     void Start()
     {
@@ -18,10 +19,12 @@ public class sphereBehavior : MonoBehaviour
         if (isMovingLeft)
         {
             isMovingLeft = false;
+            transform.rotation = Quaternion.Euler(0, 150, 0);
         }
         else
         {
             isMovingLeft = true;
+            transform.rotation = Quaternion.Euler(0, -120, 0);
         }
     }
 
@@ -30,7 +33,7 @@ public class sphereBehavior : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            changeDirection();
+            changeDirection();  
         }
 
         if (isMovingLeft)
